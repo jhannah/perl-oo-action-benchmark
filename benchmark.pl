@@ -12,7 +12,7 @@ use Time::HiRes 'time';
 
 sub time_it {
     my $t = 0;
-    for ( 1 .. 100 ) {
+    for ( 1 .. 1 ) {
         my $start_time = time();
         system(@_);
         $t += sprintf( "%0.1f", ( time() - $start_time ) * 1000 );
@@ -37,6 +37,6 @@ say 'MOOSE IMMU TIME    : ',
 say 'MOOSE + TYPES TIME : ',
   time_it( $Config{perlpath}, getcwd() . '/moose-typed.pl' ), 'ms';
 say 'RUBY TIME          : ', time_it( 'ruby', getcwd() . '/ruby.rb' ), 'ms';
-say 'RAKU TIME          : ', time_it( 'raku', getcwd() . '/raku.raku' ), 'ms';
+# say 'RAKU TIME          : ', time_it( 'raku', getcwd() . '/raku.raku' ), 'ms';
 say 'GOLANG TIME        : ', time_it( 'go', 'run', getcwd() . '/golang.go' ), 'ms';
-say 'PYTHON TIME        : ', time_it( 'python', getcwd() . '/python.py' ), 'ms';
+say 'PYTHON TIME        : ', time_it( 'python3', getcwd() . '/python.py' ), 'ms';
